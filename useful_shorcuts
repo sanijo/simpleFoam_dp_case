@@ -1,0 +1,9 @@
+meld filename_1 filename_2    -opens different files in same window, showing the differences
+less log  - shows log in real time (press shift + f for start, shift + c for stop)
+decomposePar  -  decompose domain based on core numbers in decomposeParDict
+mpirun -np 14 simpleFoam -parallel > log &   -  run case in parallel
+foamLog log  -  creates logs for different values which you can plot
+xmgrace -block p_0 -bxy 1:2  -  plot p_0 from logs in xmgrace (change yaxis to log scale)
+simpleFoam -postProcess -func yPlus  - calculate yPlus
+ctrl+s -> extractBlock (paraview)
+

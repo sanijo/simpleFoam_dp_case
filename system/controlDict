@@ -1,0 +1,202 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                   |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     simpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1495;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   50;
+
+purgeWrite      1; //save only last
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+
+
+functions
+{
+
+pressureDrop
+	{
+	type patchExpression;
+        variables ( "pOut{patch'outlet}=sum(p*area())/sum(area());");
+        accumulations (
+           min
+           max
+        );
+        patches (
+            inlet
+        );
+	outputControlMode timeStep;
+        outputInterval 1;
+	writeStartTime no;
+        expression "p-pOut";
+        verbose true;
+	}
+
+totalPressure
+    {
+        type patchAverage;
+        region region0;
+        fields (
+            p
+        );
+        patches (
+            inlet
+            outlet
+        );
+	outputControlMode timeStep;
+	outputInterval 1;
+   	writeStartTime no;
+        verbose true;
+    }
+libs ("libsimpleSwakFunctionObjects.so");
+/*
+total_pressure_inlet
+       {
+        type swakExpression;
+        valueType patch;
+        patchName inlet;
+        accumulations (
+            min
+            max
+            average
+        );
+	outputControlMode timeStep;
+        writeControl outputTime;
+	writeStartTime no;
+	writeInterval 1;
+	outputInterval 1;
+        expression "p+.5*rho*magSqr(U)";
+        verbose true;
+       }
+
+total_pressure_outlet
+       {
+        type swakExpression;
+        valueType patch;
+        patchName outlet;
+        accumulations (
+            min
+            max
+            average
+        );
+	outputControlMode timeStep;
+        writeControl outputTime;
+	writeStartTime no;
+	outputInterval 1;
+	writeInterval 1;
+        expression "p+.5*rho*magSqr(U)";
+        verbose true;
+       }
+
+}
+libs ("libsimpleSwakFunctionObjects.so");
+
+    surfaceFieldValue1
+    {
+        type            surfaceFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+        log             yes;
+        writeControl    writeTime;
+        writeFields     no; 
+        writeArea       yes;
+        regionType      patch;
+        name            inlet;
+        operation       weightedAverage;
+        weightField     phi;
+
+        fields
+        (
+            ptot
+        );
+    } 
+
+    surfaceFieldValue2
+    {
+        type            surfaceFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+        log             yes;
+        writeControl    writeTime;
+        writeFields     no; 
+        writeArea       yes;
+        regionType      patch;
+        name            outlet;
+        operation       weightedAverage;
+        weightField     phi;
+
+        fields
+        (
+            ptot
+        );
+    } 
+
+    forceCoeffs1
+    {
+        type            forceCoeffs;
+        libs            ("libforces.so");
+        writeControl    timeStep;
+        writeInterval   10;
+        log             true;
+        patches         (lopatica);
+        rho             rhoInf;      // Indicates incompressible.
+        rhoInf          1;        // Redundant for incompressible (value does not matter).
+        liftDir         (0 1 0); 
+        dragDir         (1 0 0);
+        CofR            (0 0 0);  // centar rotacije za cm.
+        pitchAxis       (0 0 1);
+        magUInf         1;           
+        lRef            1;         
+        Aref            1;         // Cell depth * chord. ->cell depth = 0.1*lRef
+    } 
+
+    minMaxUp
+    {
+        type        fieldMinMax;
+        libs ("libfieldFunctionObjects.so");
+        fields (U p);
+        mode magnitude;
+    }
+  
+
+}
+*/
+
+
+
+
+// ************************************************************************* //
