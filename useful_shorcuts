@@ -7,3 +7,12 @@ xmgrace -block Ux_0 Uy_0 Uz_0 p_0 -bxy 1:2  -  plot p_0 Ux, Uy, and Uz residuals
 simpleFoam -postProcess -func yPlus  - calculate yPlus
 ctrl+s -> extractBlock (paraview)
 
+
+simpleFoam  > residuals.dat & 
+vrti u pozadini i zapisi u resiudal.dat sve sto inace bude u terminalu 
+
+foamMonitor -l postProcessing/residuals/0/residuals.dat &
+plotanje reziduala, pazi da ti putanja bude dobra, ako ne startas od nule moras stavit dobru putanju
+
+tail -f postProcessing/residuals/298/residuals.dat 
+ispisuje reziduale
