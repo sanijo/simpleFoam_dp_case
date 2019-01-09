@@ -1,0 +1,588 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/polyMesh";
+    object      meshMetaDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaceFile     "geo.stl";
+
+surfaceMeta
+{
+    nPoints         78;
+    nFacets         118;
+    nPatches        7;
+    nFeatureEdges   0;
+    patches
+    {
+        fan-in-1
+        {
+            type            patch;
+            nFacets         296;
+        }
+        fan-out-1
+        {
+            type            patch;
+            nFacets         296;
+        }
+        garage-out
+        {
+            type            patch;
+            nFacets         2;
+        }
+        walls-fan
+        {
+            type            patch;
+            nFacets         24576;
+        }
+        fan-in-2
+        {
+            type            patch;
+            nFacets         296;
+        }
+        fan-out-2
+        {
+            type            patch;
+            nFacets         296;
+        }
+        walls-garage
+        {
+            type            patch;
+            nFacets         734;
+        }
+        motor
+        {
+            type            patch;
+            nFacets         12184;
+        }
+        battery
+        {
+            type            patch;
+            nFacets         46;
+        }
+        walls
+        {
+            type            patch;
+            nFacets         41;
+        }
+        symmetry
+        {
+            type            patch;
+            nFacets         15;
+        }
+        inlet_0
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_1
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_2
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_3
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_4
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_5
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_6
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_7
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_8
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_9
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_10
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_11
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlets_12
+        {
+            type            patch;
+            nFacets         14;
+        }
+        walls_13
+        {
+            type            patch;
+            nFacets         11282;
+        }
+        walls_14
+        {
+            type            patch;
+            nFacets         1388;
+        }
+        walls_15
+        {
+            type            patch;
+            nFacets         262;
+        }
+        walls_16
+        {
+            type            patch;
+            nFacets         364;
+        }
+        walls_17
+        {
+            type            patch;
+            nFacets         332;
+        }
+        walls_18
+        {
+            type            patch;
+            nFacets         304;
+        }
+        walls_19
+        {
+            type            patch;
+            nFacets         254;
+        }
+        walls_20
+        {
+            type            patch;
+            nFacets         300;
+        }
+        walls_21
+        {
+            type            patch;
+            nFacets         230;
+        }
+        walls_22
+        {
+            type            patch;
+            nFacets         96;
+        }
+        walls_23
+        {
+            type            patch;
+            nFacets         98;
+        }
+        walls_24
+        {
+            type            patch;
+            nFacets         100;
+        }
+        walls_25
+        {
+            type            patch;
+            nFacets         98;
+        }
+        walls_26
+        {
+            type            patch;
+            nFacets         2080;
+        }
+        walls_27
+        {
+            type            patch;
+            nFacets         262;
+        }
+        walls_28
+        {
+            type            patch;
+            nFacets         364;
+        }
+        walls_29
+        {
+            type            patch;
+            nFacets         332;
+        }
+        walls_30
+        {
+            type            patch;
+            nFacets         304;
+        }
+        walls_31
+        {
+            type            patch;
+            nFacets         254;
+        }
+        walls_32
+        {
+            type            patch;
+            nFacets         300;
+        }
+        walls_33
+        {
+            type            patch;
+            nFacets         230;
+        }
+        inwall_22
+        {
+            type            patch;
+            nFacets         658;
+        }
+        outwalls_23
+        {
+            type            patch;
+            nFacets         82;
+        }
+        outwalls_24
+        {
+            type            patch;
+            nFacets         122;
+        }
+        outwalls_25
+        {
+            type            patch;
+            nFacets         122;
+        }
+        outwalls_26
+        {
+            type            patch;
+            nFacets         164;
+        }
+        outwalls_27
+        {
+            type            patch;
+            nFacets         82;
+        }
+        outwalls_28
+        {
+            type            patch;
+            nFacets         164;
+        }
+        outwalls_29
+        {
+            type            patch;
+            nFacets         96;
+        }
+        outwalls_30
+        {
+            type            patch;
+            nFacets         96;
+        }
+        outwalls_31
+        {
+            type            patch;
+            nFacets         96;
+        }
+        outwalls_32
+        {
+            type            patch;
+            nFacets         98;
+        }
+        outwalls_33
+        {
+            type            patch;
+            nFacets         100;
+        }
+        outwalls_34
+        {
+            type            patch;
+            nFacets         98;
+        }
+        outwalls_35
+        {
+            type            patch;
+            nFacets         122;
+        }
+        outwalls_36
+        {
+            type            patch;
+            nFacets         82;
+        }
+        outwalls_37
+        {
+            type            patch;
+            nFacets         82;
+        }
+        outwalls_38
+        {
+            type            patch;
+            nFacets         122;
+        }
+        wallin_22
+        {
+            type            patch;
+            nFacets         658;
+        }
+        wallsout_23
+        {
+            type            patch;
+            nFacets         82;
+        }
+        wallsout_24
+        {
+            type            patch;
+            nFacets         122;
+        }
+        wallsout_25
+        {
+            type            patch;
+            nFacets         122;
+        }
+        wallsout_26
+        {
+            type            patch;
+            nFacets         164;
+        }
+        wallsout_27
+        {
+            type            patch;
+            nFacets         82;
+        }
+        wallsout_28
+        {
+            type            patch;
+            nFacets         164;
+        }
+        wallsout_29
+        {
+            type            patch;
+            nFacets         96;
+        }
+        wallsout_30
+        {
+            type            patch;
+            nFacets         96;
+        }
+        wallsout_31
+        {
+            type            patch;
+            nFacets         96;
+        }
+        wallsout_32
+        {
+            type            patch;
+            nFacets         98;
+        }
+        wallsout_33
+        {
+            type            patch;
+            nFacets         100;
+        }
+        wallsout_34
+        {
+            type            patch;
+            nFacets         98;
+        }
+        wallsout_35
+        {
+            type            patch;
+            nFacets         122;
+        }
+        wallsout_36
+        {
+            type            patch;
+            nFacets         82;
+        }
+        wallsout_37
+        {
+            type            patch;
+            nFacets         82;
+        }
+        wallsout_38
+        {
+            type            patch;
+            nFacets         122;
+        }
+        inlet
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet1
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet2
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet3
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet4
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet5
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet6
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet7
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet8
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet9
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet10
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet11
+        {
+            type            patch;
+            nFacets         14;
+        }
+        outlet12
+        {
+            type            patch;
+            nFacets         14;
+        }
+        walls_0
+        {
+            type            patch;
+            nFacets         11282;
+        }
+        walls_1
+        {
+            type            patch;
+            nFacets         1388;
+        }
+        walls_2
+        {
+            type            patch;
+            nFacets         262;
+        }
+        walls_3
+        {
+            type            patch;
+            nFacets         364;
+        }
+        walls_4
+        {
+            type            patch;
+            nFacets         332;
+        }
+        walls_5
+        {
+            type            patch;
+            nFacets         304;
+        }
+        walls_6
+        {
+            type            patch;
+            nFacets         254;
+        }
+        walls_7
+        {
+            type            patch;
+            nFacets         300;
+        }
+        walls_8
+        {
+            type            patch;
+            nFacets         230;
+        }
+        wallin
+        {
+            type            patch;
+            nFacets         658;
+        }
+        wallsout
+        {
+            type            patch;
+            nFacets         1728;
+        }
+        heat_source_0
+        {
+            type            patch;
+            nFacets         4;
+        }
+        solid_interface_1
+        {
+            type            patch;
+            nFacets         2;
+        }
+        solid_walls_2
+        {
+            type            patch;
+            nFacets         100;
+        }
+        solid_walls_3
+        {
+            type            patch;
+            nFacets         2;
+        }
+        solid_walls_4
+        {
+            type            patch;
+            nFacets         4;
+        }
+        solid_walls_5
+        {
+            type            patch;
+            nFacets         2;
+        }
+        solid_walls_6
+        {
+            type            patch;
+            nFacets         4;
+        }
+    }
+    pointSubsets
+    {
+    }
+    facetSubsets
+    {
+    }
+    featureEdgeSubsets
+    {
+    }
+}

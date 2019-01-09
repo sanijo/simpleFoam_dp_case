@@ -1,0 +1,48 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/solid";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 315;
+
+boundaryField
+{
+    heat_in
+    {
+	type groovyBC;
+	variables "k=200;htc=50+(100*time());Tinf=315;f=1/(1+k/(htc*mag(delta())));";
+	value uniform 315;
+	valueExpression "Tinf";
+	gradientExpression "0";
+	fractionExpression "f";
+    }
+    heat_out
+    {
+        type            externalWallHeatFluxTemperature;
+        //mode            power;
+        q               10000;                 // flux / [W per m2]
+        value           uniform 315;         // Initial temperature / [K]
+        kappaMethod     solidThermo;
+    }
+    solid_walls
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

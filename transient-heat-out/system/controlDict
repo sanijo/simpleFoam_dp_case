@@ -1,0 +1,114 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     chtMultiRegionFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         10;
+
+deltaT          1e-5;
+
+writeControl    runTime;
+
+writeInterval   0.2;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  8;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+libs ("libsimpleSwakFunctionObjects.so" "libgroovyBC.so");
+
+functions
+{
+
+heat_in    {
+        type patchExpression;
+        region     solid;
+        writeControl   timeStep;
+        writeInterval    1;
+        accumulations (
+            sum
+        );
+        patches (
+            heat_in
+        );
+        expression "200*snGrad(T)*area()";
+        verbose true;
+    }
+
+heat_out    {
+        type patchExpression;
+        region     solid;
+        writeControl   timeStep;
+        writeInterval    1;
+        accumulations (
+            sum
+        );
+        patches (
+            heat_out
+        );
+        expression "200*snGrad(T)*area()";
+        verbose true;
+    }
+
+//    wallHeatFluid
+//    {
+//        type        wallHeatFlux;
+//        libs        ("libfieldFunctionObjects.so");
+//        region      fluid;
+//    }
+//
+//    wallHeatSolid
+//    {
+//        type        wallHeatFlux;
+//        libs        ("libfieldFunctionObjects.so");
+//        region      solid;
+//    }
+//    fieldMinMax
+//    {
+//        type        fieldMinMax;
+//        libs        ("libfieldFunctionObjects.so");
+//        write       yes;
+//        log         yes;
+//        location    yes;
+//        mode        magnitude;
+//        region      fluid;
+//        fields
+//        (
+//            U
+//            p_rgh
+//        );
+//    }
+}
+
+
+// ************************************************************************* //
