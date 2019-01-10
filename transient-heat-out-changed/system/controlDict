@@ -23,7 +23,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         10;
+endTime         1;
 
 deltaT          1e-5;
 
@@ -79,6 +79,43 @@ heat_out    {
         expression "200*snGrad(T)*area()";
         verbose true;
     }
+/*
+htc    {
+        type patchExpression;
+        region     solid;
+        writeControl   timeStep;
+        writeInterval    1;
+        variables (
+            "currHtc{heat_out} = 50+(100*time());"
+        );
+        accumulations (
+            max     
+        ); 
+        patches (
+            heat_out
+        );
+        expression "currHtc";
+        verbose true;
+    }*/
+
+Tinf    {
+        type patchExpression;
+        region     solid;
+        writeControl   timeStep;
+        writeInterval    1;
+        variables (
+            "currTinf{heat_out} = 293.15-(10*time());"
+        );
+        accumulations (	    
+            max            
+        ); 
+        patches (
+            heat_out
+        );
+        expression "currTinf";
+        verbose true;
+    }
+
 
 //    wallHeatFluid
 //    {

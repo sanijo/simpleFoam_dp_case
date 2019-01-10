@@ -17,25 +17,26 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 315;
+internalField   uniform 315.15;
 
 boundaryField
 {
-    heat_in
+    heat_out
     {
 	type groovyBC;
-	variables "k=200;htc=50+(100*time());Tinf=315;f=1/(1+k/(htc*mag(delta())));";
-	value uniform 315;
+//	variables "k=200;htc=50+(100*time());Tinf=293.15+(100*time());f=1/(1+k/(htc*mag(delta())));";
+	variables "k=200;htc=150;Tinf=293.15-(10*time());f=1/(1+k/(htc*mag(delta())));";
+	value uniform 293.15;
 	valueExpression "Tinf";
 	gradientExpression "0";
 	fractionExpression "f";
     }
-    heat_out
+    heat_in
     {
         type            externalWallHeatFluxTemperature;
         //mode            power;
-        q               10000;                 // flux / [W per m2]
-        value           uniform 315;         // Initial temperature / [K]
+        q               uniform 10000;                 // flux / [W per m2]
+        value           uniform 315.15;         // Initial temperature / [K]
         kappaMethod     solidThermo;
     }
     solid_walls

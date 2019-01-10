@@ -17,13 +17,13 @@ FoamFile
 
 3
 (
-    heat_in
+    heat_out
     {
         type            patch;
         nFaces          364;
         startFace       48528;
     }
-    heat_out
+    heat_in
     {
         type            patch;
         nFaces          1560;
